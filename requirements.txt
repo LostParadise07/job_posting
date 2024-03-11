@@ -1,0 +1,8 @@
+asgiref
+Django
+gunicorn
+packaging
+python-dotenv
+sqlparse
+typing_extensions
+whitenoise
