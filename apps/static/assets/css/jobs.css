@@ -1,0 +1,50 @@
+.width-50 {
+    width: 50%; 
+}
+
+.recent-job-list {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+    border-radius: 10px;
+}
+
+.job-card {
+    padding: 20px;
+    border-radius: 10px;
+    margin:10px;
+    background-color: #191c24;
+    color: white;
+    margin-bottom: 1px;
+}
+
+.job-title,
+.job-company {
+    font-size: 20px;
+    margin: 0;
+}
+
+.job-skill,
+.job-apply-button {
+    margin: 10px 0;
+}
+
+.job-apply-button {
+    background: rgb(80, 214, 240);
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.content-wrapper {
+    background: #dad7d7;
+    
+}
+
+.recent-job {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
