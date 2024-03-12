@@ -19,7 +19,7 @@ class Users(db.Model, UserMixin):
     password = db.Column(db.LargeBinary)
     number = db.Column(db.Integer, unique=True)
     address = db.Column(db.String(64))
-    role = db.Column(db.String(64))
+    role = db.Column(db.String(64), default='user')
 
 
     def __init__(self, **kwargs):

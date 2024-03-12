@@ -59,6 +59,9 @@ def register():
 
         username = request.form['username']
         email = request.form['email']
+        password = request.form['password']
+        confirmpassword = request.form['confirmpassword']
+
 
         # Check usename exists
         user = Users.query.filter_by(username=username).first()
@@ -75,8 +78,14 @@ def register():
                                    msg='Email already registered',
                                    success=False,
                                    form=create_account_form)
+        
+        if password != confirmpassword:
+            return render_template('accounts/register.html',
+                                   msg='Password and Confirm Password are not same',
+                                   success=False,
+                                   form=create_account_form)
 
-        # else we can create the user
+        
         user = Users(**request.form)
         db.session.add(user)
         db.session.commit()

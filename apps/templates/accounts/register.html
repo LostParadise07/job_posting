@@ -19,7 +19,7 @@
               <a href="https://appseed.us/product/corona-dark/flask/"> Sign Up</a> 
             </h3>
 
-            <span class="mb-0 text-muted">
+            <span class="mb-0 {% if msg and success %}text-success{% elif msg %}text-danger{% endif %}" >
               {% if msg %}
                   {{ msg | safe }}
               {% else %}
@@ -56,6 +56,21 @@
                 <div class="form-group">
                   <label>Password</label>
                   {{ form.password(placeholder="Password", class="form-control p_input", type="password") }}
+                </div>
+
+                <div class="form-group">
+                  <label>Confirm Password</label>
+                  {{ form.confirmpassword(placeholder="Confirm Password", class="form-control p_input", type="password") }}
+                </div>
+
+                <div class="form-group">
+                  <label>Mobile Number</label>
+                  {{ form.number(placeholder="Mobile Number", class="form-control p_input", type="number") }}
+                </div>
+
+                <div class="form-group">
+                  <label>Address</label>
+                  {{ form.address(placeholder="Address", class="form-control p_input") }}
                 </div>
                 
                 <div class="form-group d-flex align-items-center justify-content-between">

@@ -4,8 +4,8 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
-from wtforms.validators import Email, DataRequired
+from wtforms import StringField, PasswordField, IntegerField , SelectField
+from wtforms.validators import Email, DataRequired, InputRequired
 
 # login and registration
 
@@ -29,3 +29,13 @@ class CreateAccountForm(FlaskForm):
     password = PasswordField('Password',
                              id='pwd_create',
                              validators=[DataRequired()])
+    confirmpassword = PasswordField('Confirm Password',
+                                    id='confirm_password_create',
+                                    validators=[DataRequired()])
+    number = IntegerField('Number',
+                            id='number_create',
+                            validators=[DataRequired()])
+    address = StringField('Address',
+                            id='address_create',
+                            validators=[DataRequired()])
+    role = SelectField('Role', choices=[('admin', 'admin'), ('user', 'user')])
