@@ -1,5 +1,20 @@
-      <nav class="sidebar sidebar-offcanvas" >
-        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+<style>
+  
+  .nav.flex-column.sub-menu .nav-item .nav-link:hover,
+  .nav.flex-column.sub-menu .nav-item .nav-link.active {
+    background-color: #1e1c1c;
+  }
+  
+  .menu-arrow:after {
+    border-top-color: #ffff;
+  }
+  .nav-item.nav-link {
+    background:cyan;
+  }
+  </style>
+  
+      <nav class="sidebar sidebar-offcanvas" style="background:#ffff">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top" >
           <a class="sidebar-brand brand-logo" href="index.html"><img src="/static/assets/images/logo.svg" alt="logo" /></a>
           <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="/static/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
@@ -9,7 +24,7 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ url_for('home_blueprint.index') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
@@ -25,6 +40,21 @@
             </a>
           </li>
           <li class="nav-item menu-items">
+            <a class="nav-link"  id="editt" data-toggle="collapse" href="#edit-jobs" aria-expanded="false" aria-controls="edit-jobs">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">Edit Jobs</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="edit-jobs">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ url_for('home_blueprint.add_jobs') }}">Add Jobs</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url_for('home_blueprint.edit_jobs') }}">Update Jobs</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
                 <i class="mdi mdi-laptop"></i>
@@ -39,7 +69,7 @@
                 <li class="nav-item"> <a class="nav-link" href="/typography.html">Typography</a></li>
               </ul>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item menu-items">
             <a class="nav-link" href="/basic-elements.html">
               <span class="menu-icon">

@@ -38,6 +38,25 @@ class Users(db.Model, UserMixin):
 
     def __repr__(self):
         return str(self.username)
+    
+class Jobs(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'))
+    company_name = db.Column(db.String(64))
+    job_title = db.Column(db.String(64))
+    job_description = db.Column(db.String(64))
+    job_location = db.Column(db.String(64))
+    job_salary = db.Column(db.String(64))
+    job_type = db.Column(db.String(64))
+    job_category = db.Column(db.String(64))
+    job_experience = db.Column(db.String(64))
+    job_qualification = db.Column(db.String(64))
+    job_skills = db.Column(db.String(64))
+    job_posted = db.Column(db.String(64))
+    job_deadline = db.Column(db.String(64))
+    job_status = db.Column(db.String(64))
+    featured_job = db.Column(db.Boolean, default=False)
+
 
 
 @login_manager.user_loader

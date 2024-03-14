@@ -4,7 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from apps.home import blueprint
-from flask import render_template, request
+from flask import render_template, request , url_for
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
@@ -12,9 +12,18 @@ from jinja2 import TemplateNotFound
 @blueprint.route('/index')
 @login_required
 def index():
-
     return render_template('home/index.html', segment='index')
 
+
+@blueprint.route('/add_jobs')
+@login_required
+def add_jobs():
+    return render_template('home/add_jobs.html', segment='add_jobs')
+
+@blueprint.route('/edit_jobs')
+@login_required
+def edit_jobs():
+    return render_template('home/edit_jobs.html', segment='edit_jobs')
 
 @blueprint.route('/<template>')
 @login_required

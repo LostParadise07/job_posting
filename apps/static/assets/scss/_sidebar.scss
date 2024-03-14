@@ -34,7 +34,7 @@
       &:active,
       &:focus,
       &:hover {
-        color: lighten(color(gray-dark), 10%);
+        color: lighten(color(black), 10%);
       }
 
       img {
@@ -80,7 +80,7 @@
         @include align-items(center);
         white-space: nowrap;
         padding: $sidebar-menu-padding-y 10px $sidebar-menu-padding-y $sidebar-menu-padding-x;
-        color: $sidebar-dark-menu-color;
+        color: black;
         @include transition-duration(0.45s);
         transition-property: color;
         -webkit-transition-property: color;

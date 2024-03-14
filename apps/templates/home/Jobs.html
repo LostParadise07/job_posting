@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/static/assets/vendors/flag-icon-css/css/flag-icon.min.css">
   <link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.carousel.min.css">
   <link rel="stylesheet" href="/static/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
-  <link rel="stylesheet" href="/static/assets/css/jobs.css">
 
 {% endblock plugin_stylesheets %}
 
@@ -18,58 +17,36 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-<div class="content-wrapper" style="background:#dad7d7;padding:0px 0px;">
-    <div class="recent-job">
-        <div class="width-50">
-            <div class="job-card">
-                <h4 class="job-title">HTML Designer</h4>
-                <p class="job-company">Dezven Software Solution <i class="fa fa-star" aria-hidden="true"></i> | 234 Reviews </p>
-                <p class="job-skill"><b>Skills:</b> HTML, CSS, JAVASCRIPT, JQUERY, BOOTSTRAP, PHOTOSHOP</p>
-                <a href="#" class="job-apply-button">View Job</a>
+
+
+<div class="content-wrapper" style="background:#dffc7d;">
+    {% for i in range(3) %}
+    <div class="row">
+        <div class="col-xl-12 col-sm-6 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-9">
+                  <div class="d-flex align-items-center align-self-start">
+                    <h3 class="mb-0">Company Name</h3>
+                    <p class="text-success ml-2 mb-0 font-weight-medium"></p>
+                  </div>
+                </div>
+                <div class="col-1 ml-auto">
+                    <div class="icon icon-box-success">
+                        <a class="mdi mdi-arrow-right text-success icon-item"></a>
+                    </div>
+                </div>                
+              </div>
+              <h6 class="font-weight-normal text-success">Job Details</h6>
+              <h6 class=" font-weight-normal text-warning" >Skills Required</h6>
             </div>
-        </div>
-        <div class="width-50">
-            <div class="job-card">
-                <h4 class="job-title">CSS Designer</h4>
-                <p class="job-company">Dezven Group <i class="fa fa-star" aria-hidden="true"></i> | 234 Reviews </p>
-                <p class="job-skill"><b>Skills:</b> HTML, CSS, JAVASCRIPT, JQUERY, BOOTSTRAP, PHOTOSHOP</p>
-                <a href="#" class="job-apply-button">View Job</a>
-            </div>
-        </div>
-        <div class="width-50">
-            <div class="job-card">
-                <h4 class="job-title">HTML Designer</h4>
-                <p class="job-company">Dezven Software Solution <i class="fa fa-star" aria-hidden="true"></i> | 234 Reviews </p>
-                <p class="job-skill"><b>Skills:</b> HTML, CSS, JAVASCRIPT, JQUERY, BOOTSTRAP, PHOTOSHOP</p>
-                <a href="#" class="job-apply-button">Apply Now</a>
-            </div>
-        </div>
-        <div class="width-50">
-            <div class="job-card">
-                <h4 class="job-title">CSS Designer</h4>
-                <p class="job-company">Dezven Group <i class="fa fa-star" aria-hidden="true"></i> | 234 Reviews </p>
-                <p class="job-skill"><b>Skills:</b> HTML, CSS, JAVASCRIPT, JQUERY, BOOTSTRAP, PHOTOSHOP</p>
-                <a href="#" class="job-apply-button">Apply Now</a>
-            </div>
-        </div>
-        <div class="width-50">
-            <div class="job-card">
-                <h4 class="job-title">HTML Designer</h4>
-                <p class="job-company">Dezven Software Solution <i class="fa fa-star" aria-hidden="true"></i> | 234 Reviews </p>
-                <p class="job-skill"><b>Skills:</b> HTML, CSS, JAVASCRIPT, JQUERY, BOOTSTRAP, PHOTOSHOP</p>
-                <a href="#" class="job-apply-button">Apply Now</a>
-            </div>
-        </div>
-        <div class="width-50">
-            <div class="job-card">
-                <h4 class="job-title">CSS Designer</h4>
-                <p class="job-company">Dezven Group <i class="fa fa-star" aria-hidden="true"></i> | 234 Reviews </p>
-                <p class="job-skill"><b>Skills:</b> HTML, CSS, JAVASCRIPT, JQUERY, BOOTSTRAP, PHOTOSHOP</p>
-                <a href="#" class="job-apply-button">Apply Now</a>
-            </div>
+          </div>
         </div>
     </div>
+    {% endfor %}
 </div>
+
 
 
 {% endblock content %}
