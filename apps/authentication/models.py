@@ -56,6 +56,7 @@ class Jobs(db.Model):
     job_deadline = db.Column(db.String(64))
     job_status = db.Column(db.String(64))
     featured_job = db.Column(db.Boolean, default=False)
+    url=db.Column(db.String(64))
 
 
 

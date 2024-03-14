@@ -61,9 +61,6 @@ def register():
         email = request.form['email']
         password = request.form['password']
         confirmpassword = request.form['confirmpassword']
-
-
-        # Check usename exists
         user = Users.query.filter_by(username=username).first()
         if user:
             return render_template('accounts/register.html',

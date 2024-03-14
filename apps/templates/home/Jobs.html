@@ -20,7 +20,13 @@
 
 
 <div class="content-wrapper" style="background:#dffc7d;">
-    {% for i in range(3) %}
+  <!-- create a button on right side for add job  -->
+  <div class="row mb-3">
+    <div class="col">
+      <a href="{{ url_for('home_blueprint.add_jobs') }}" class="btn btn-info">Add Job</a>
+    </div>
+  </div>
+    {% for job in jobs %}
     <div class="row">
         <div class="col-xl-12 col-sm-6 grid-margin stretch-card">
           <div class="card">
@@ -28,18 +34,29 @@
               <div class="row">
                 <div class="col-9">
                   <div class="d-flex align-items-center align-self-start">
-                    <h3 class="mb-0">Company Name</h3>
+                    <h3 class="mb-0">Company Name: {{ job.company_name }}</h3>
                     <p class="text-success ml-2 mb-0 font-weight-medium"></p>
                   </div>
                 </div>
-                <div class="col-1 ml-auto">
-                    <div class="icon icon-box-success">
-                        <a class="mdi mdi-arrow-right text-success icon-item"></a>
-                    </div>
-                </div>                
+                <div class="row m-lg-0 mt-5"> 
+                  <div class="col-1 ml-auto">
+                      <div class="icon">
+                          <a href="{{ url_for('home_blueprint.edit_jobs') }}" class="mdi text-warning icon-item" style="text-decoration:none;cursor:pointer;">Update</a>
+                      </div>
+                  </div>  
               </div>
-              <h6 class="font-weight-normal text-success">Job Details</h6>
-              <h6 class=" font-weight-normal text-warning" >Skills Required</h6>
+                <div class="row">
+                  <div class="col-1 ml-auto">
+                      <div class="icon icon-box-success">
+                        <a href="http://{{ job.url }}" target="blank" class="mdi mdi-arrow-right text-success icon-item"></a>
+                      </div>
+                  </div>  
+              </div>
+              
+                          
+              </div>
+              <h6 class="font-weight-normal text-success">Job Title: {{ job.job_title }}</h6>
+              <h6 class=" font-weight-normal text-warning" >Skills Required: {{ job.job_skills }}</h6>
             </div>
           </div>
         </div>
