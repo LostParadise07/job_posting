@@ -18,6 +18,15 @@
 {% block content %}
 
 <div class="content-wrapper" style="background:#dffc7d;" >
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
     <div class="col-12 grid-margin">
         <div class="card">
           <div class="card-body">

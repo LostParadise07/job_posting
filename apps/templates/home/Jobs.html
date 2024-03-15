@@ -20,10 +20,18 @@
 
 
 <div class="content-wrapper" style="background:#dffc7d;">
-  <!-- create a button on right side for add job  -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
   <div class="row mb-3">
     <div class="col">
-      <a href="{{ url_for('home_blueprint.add_jobs') }}" class="btn btn-info">Add Job</a>
+      <a href="{{ url_for('home_blueprint.add_jobs') }}" class="btn btn-info text-center mdi mdi-folder-plus "> Add Job</a>
     </div>
   </div>
     {% for job in jobs %}
@@ -35,27 +43,25 @@
                 <div class="col-9">
                   <div class="d-flex align-items-center align-self-start">
                     <h3 class="mb-0">Company Name: {{ job.company_name }}</h3>
+                    <div class="icon ml-4 mt-0">
+                      <a href="{{ url_for('home_blueprint.edit_job', job_id=job.id) }}" class="text-info mdi mdi-settings icon-item" title="Update" style="text-decoration:none;cursor:pointer;"></a>
+                    </div>
+                    <div class="icon ml-4">
+                      <a href="#" onclick="confirmDelete('{{ url_for('home_blueprint.delete_job', job_id=job.id) }}')"  class="text-danger mdi mdi mdi-delete icon-item" title="Delete" style="text-decoration:none;cursor:pointer;"></a>
+                    </div>
                     <p class="text-success ml-2 mb-0 font-weight-medium"></p>
                   </div>
                 </div>
-                <div class="row m-lg-0 mt-5"> 
-                  <div class="col-1 ml-auto">
-                      <div class="icon">
-                          <a href="{{ url_for('home_blueprint.edit_jobs') }}" class="mdi text-warning icon-item" style="text-decoration:none;cursor:pointer;">Update</a>
-                      </div>
-                  </div>  
-              </div>
                 <div class="row">
                   <div class="col-1 ml-auto">
                       <div class="icon icon-box-success">
-                        <a href="http://{{ job.url }}" target="blank" class="mdi mdi-arrow-right text-success icon-item"></a>
+                        <a href="http://{{ job.url }}" target="blank" class="mdi mdi-arrow-right text-success icon-item" titl="Apply"></a>
                       </div>
                   </div>  
-              </div>
-              
+                </div>
                           
               </div>
-              <h6 class="font-weight-normal text-success">Job Title: {{ job.job_title }}</h6>
+              <h6 class="font-weight-normal text-warning">Job Title: {{ job.job_title }}</h6>
               <h6 class=" font-weight-normal text-warning" >Skills Required: {{ job.job_skills }}</h6>
             </div>
           </div>
@@ -82,5 +88,11 @@
 {% block javascripts %}
 
   <script src="/static/assets/js/dashboard.js"></script>
-
+  <script>
+    function confirmDelete(url) {
+      if (confirm('Are you sure you want to delete this job?')) {
+        window.location.href = url;
+      }
+    }
+  </script>
 {% endblock javascripts %}

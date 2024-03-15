@@ -15,22 +15,29 @@
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
-
 {% block content %}
 
 <div class="content-wrapper" style="background:#dffc7d;" >
     <div class="col-12 grid-margin">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Edit Job</h4>
-            <form class="form-sample">
-              <p class="card-description"> Update Basic Detail </p>
+            <h4 class="card-title">Add Job</h4>
+            <span class="mb-0 text-success" >
+              {% if msg %}
+                  {{ msg | safe }}
+              {% else %}
+                  Please update your form
+              {% endif %} 
+            </span>
+            <form class="form-sample" method="post" action="">
+              {{ form.hidden_tag() }} 
+              <p class="card-description"> Basic Detail </p>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Company</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" />
+                      {{ form.company_name(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -38,7 +45,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Job Title</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" />
+                      {{ form.job_title(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -48,7 +55,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Description</label>
                     <div class="col-sm-9">
-                        <input type="text-area" class="form-control" />
+                        {{ form.job_description(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -56,7 +63,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Location</label>
                     <div class="col-sm-9">
-                      <input class="form-control" type="text" />
+                      {{ form.job_location(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -66,7 +73,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Salary</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" />
+                        {{ form.job_salary(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -74,11 +81,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Job Type</label>
                     <div class="col-sm-9">
-                        <select class="form-control">
-                          <option>Office</option>
-                          <option>Remote</option>
-                          <option>Hybrid</option>
-                        </select>
+                        {{ form.job_type(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -88,7 +91,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Job Category</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" />
+                      {{ form.job_category(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -96,7 +99,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Experience</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" />
+                      {{ form.job_experience(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -106,7 +109,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Qualification</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" />
+                      {{ form.job_qualification(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -114,7 +117,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Skills</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" />
+                      {{ form.job_skills(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -124,7 +127,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Job Posted</label>
                     <div class="col-sm-9">
-                      <input type="date" class="form-control" placeholder="DD/MM/YY" />
+                      {{ form.job_posted(class="form-control", type="date" ) }}
                     </div>
                   </div>
                 </div>
@@ -132,7 +135,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Deadline</label>
                     <div class="col-sm-9">
-                        <input type="date" class="form-control" placeholder="DD/MM/YY" />
+                        {{ form.job_deadline(class="form-control" ,type="date" ) }}
                     </div>
                   </div>
                 </div>
@@ -142,7 +145,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Job Status</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control"  />
+                      {{ form.job_status(class="form-control") }}
                     </div>
                   </div>
                 </div>
@@ -150,10 +153,7 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Featured</label>
                     <div class="col-sm-9">
-                        <select class="form-control">
-                          <option>No</option>
-                          <option>Yes</option>
-                        </select>
+                        {{ form.featured_job(class="form-control" ) }}
                     </div>
                   </div>
                 </div>
@@ -163,10 +163,14 @@
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label">URL</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control"  />
+                      {{ form.url(class="form-control" ,placeholder="Please Enter without https://") }}
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div class="text-center">
+                <button type="submit" name="add_job" class="btn btn-primary  enter-btn">Submit</button>
               </div>
             </form>
           </div>
@@ -175,8 +179,8 @@
 
 </div>
 
-
 {% endblock content %}
+
 
 <!-- Specific Plugin JS goes HERE  -->
 {% block plugin_javascripts %}
